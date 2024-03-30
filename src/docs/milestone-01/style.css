@@ -1,8 +1,20 @@
-#team p {
+#team{
+    margin-left: 300px;
+    display: flex;
+}
+
+#team p{
     font-size: 12px;
     font-family: Arial;
 }
 #image{
     height: 50px;
     width: 50px;
+}
+.member{
+    margin-right: 200px;
+}
+.wire-frame{
+    margin-left: 300px;
+    display: flex;
 }
