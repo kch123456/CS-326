@@ -22,10 +22,11 @@
     "email": "",
     "url": "https://github.com/kch123456/CS-326.git"
   },
-  "contributors": [ "Kevin Chen | Kunhongchen@umass.edu | kch123456",
-                    "Rohan Malvi | rmalvi@umass.edu | malvi07",
-                    "Florevens Petit-Homme | fpetithomme@umass.edu | FloFloCodes",
-                    "Vien Tran | vientran@umass.edu | Vien Tran"
+  "contributors": [
+    "Kevin Chen | Kunhongchen@umass.edu | kch123456",
+    "Rohan Malvi | rmalvi@umass.edu | malvi07",
+    "Florevens Petit-Homme | fpetithomme@umass.edu | FloFloCodes",
+    "Vien Tran | vientran@umass.edu | vientrvn"
   ],
   "scripts": {
     "dev": "",
@@ -34,10 +35,6 @@
     "prettier": "prettier src —write",
     "validate-html": "html-validate src/**/*.html"
   },
-  "dependencies": {
-
-  },
-  "devDependencies": {
-
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }
