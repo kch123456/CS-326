@@ -1,13 +1,14 @@
 #team{
     margin-left: 250px;
     display: flex;
+    border: 5px black;
 }
 
 #team p{
     font-size: 12px;
     font-family: Arial;
 }
-#image{
+.image{
     height: 50px;
     width: 50px;
 }
@@ -20,4 +21,12 @@
 }
 .frame{
     margin-right: 200px;
+}
+div a{
+    font-size: 20px;
+    padding: 50px;
+    margin-left: 250px;
+}
+#navigator{
+    background-color: lightgreen;
 }
