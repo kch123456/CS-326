@@ -30,3 +30,6 @@ div a{
 #navigator{
     background-color: lightgreen;
 }
+.wire-Frame{
+    display: hidden;
+}
