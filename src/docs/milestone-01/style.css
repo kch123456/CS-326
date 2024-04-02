@@ -2,6 +2,10 @@ html{
     background-color: lightblue;
 }
 
+#vision {
+    text-align: center;
+    padding: 20px;
+}
 #team{
     margin-left: 250px;
     display: flex;
@@ -11,6 +15,7 @@ html{
 #team p{
     font-size: 12px;
     font-family: Arial;
+    color: ;
 }
 .image{
     height: 50px;
