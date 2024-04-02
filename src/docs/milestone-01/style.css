@@ -1,6 +1,7 @@
 html{
     background-color: lightblue;
 }
+
 #team{
     margin-left: 250px;
     display: flex;
@@ -22,14 +23,14 @@ html{
 .member{
     margin-right: 200px;
 }
-div a{
+nav a{
     font-size: 20px;
     padding: 50px;
     margin-left: 250px;
 }
-#navigator{
+nav{
     background-color: lightgreen;
 }
 .wire-Frame{
-    display: none;
+    display: none
 }
