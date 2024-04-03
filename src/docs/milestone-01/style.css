@@ -1,40 +1,46 @@
 html{
+    background-color: white;
+}
+header{
     background-color: lightblue;
 }
-
 #vision {
     text-align: center;
     padding: 20px;
 }
-#team{
-    margin-left: 250px;
-    display: flex;
-    border: 5px black;
+#team {
+    display: grid;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
-
+.member {
+    flex: 1 1 calc(50% - 40px);
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
 #team p{
     font-size: 12px;
     font-family: Arial;
-    color: ;
 }
 .image{
     height: 50px;
     width: 50px;
 }
+nav a{
+    font-size: 20px;
+    padding: 20px;
+    margin-left: 40px;
+}
+nav{
+    background-color: lightblue;
+}
 .image1{
     height: 300px;
     width: 350px;
-}
-.member{
-    margin-right: 200px;
-}
-nav a{
-    font-size: 20px;
-    padding: 50px;
-    margin-left: 250px;
-}
-nav{
-    background-color: lightgreen;
 }
 .wire-Frame{
     display: none
