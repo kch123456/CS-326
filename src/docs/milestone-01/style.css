@@ -30,13 +30,18 @@ header{
     height: 50px;
     width: 50px;
 }
-nav a{
-    font-size: 20px;
-    padding: 20px;
-    margin-left: 40px;
-}
 nav{
     background-color: lightblue;
+}
+nav a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    transition: color 0.3s ease;
+    margin-left: 75px;
+}
+nav a:hover {
+    color: red;
 }
 .image1{
     height: 300px;
