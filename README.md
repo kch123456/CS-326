@@ -1,3 +1,3 @@
-# CS 326 - Semester Project - Team 26
+# CS 326 - Echo Secure - Team 26
 
 Hellow
