@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "echo-secure",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -19,7 +19,7 @@
   "keywords": [],
   "author": {
     "name": "Team 23",
-    "email": "",
+    "email": "vientran@umass.edu",
     "url": "https://github.com/kch123456/CS-326.git"
   },
   "contributors": [
