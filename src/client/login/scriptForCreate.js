@@ -1,20 +1,26 @@
-import * as db from "./db";
+import PouchDB from './pouchdb';
 
-function CreateAcc(){
-let userName = document.getElementById('UserName').value;
-let password = document.getElementById('password').value;
+const db = new PouchDB('userCredential');
 
-const user = {'userName':userName, 'password':password};
+async function createAcc() {
+    let userName = document.getElementById('UserName').value;
+    let password = document.getElementById('password').value;
 
-db.put(user).then(response =>{
-    console.log('Document added successfully:', response);
-})
-.catch(error => {
-    console.error('Error adding document:', error);
-});
+    const user = { 'userName': userName, 'password': password };
+
+    try {
+        const response = await db.put(user);
+        console.log('Document added successfully:', response);
+    } catch (error) {
+        console.error('Error adding document:', error);
+    }
 }
 
-document.getElementById('register').addEventListener('click',async function(){
-    await CreateAcc();
-    return;
+document.addEventListener('DOMContentLoaded', () => {
+    const registerButton = document.getElementById('register');
+    if (registerButton) {
+        registerButton.addEventListener('click', async () => {
+            await createAcc();
+        });
+    }
 });
