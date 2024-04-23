@@ -20,6 +20,7 @@ body{
 
 .taskDetail{
     background-color: aqua;
+    border-radius: 20px;
     width: 600px;
     height: 300px;
     position: absolute;
@@ -29,9 +30,13 @@ body{
 
 .discussion{
     background-color: red;
+    border-radius: 20px;
     width: 600px;
     height: 300px;
     position: absolute;
     bottom: 0; /* Position discussion at the bottom */
     flex-direction: column;
+}
+.taskDetail, .discussion {
+    flex: 1; /* Allow both elements to grow and fill the available space */
 }
