@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echo Secure Dashboard</title>
+    <link href="css/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <nav id="navbar" class="navbar">
+            <a href="#" class="nav-link" onclick="showView('dashboard')">Dashboard</a>
+            <a href="#" class="nav-link" onclick="showView('addTask')">Add Task</a>
+            <a href="#" class="nav-link" onclick="showView('about')">About</a>
+        </nav>
+        <div id="task-list">
+            <!-- Dynamically filled with tasks -->
+        </div>
+        <div id="task-details">
+            <!-- Details appear when a task is clicked -->
+        </div>
+        <form id="add-task-form">
+            <input type="text" id="task-name" placeholder="Task Name" required />
+            <textarea id="task-desc" placeholder="Task Description" required></textarea>
+            <input type="date" id="task-due-date" required />
+            <button type="submit">Add Task</button>
+        </form>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
