@@ -1,9 +1,3 @@
-let currentDate = new Date();
-
-document.addEventListener('DOMContentLoaded', function () {
-    renderCalendar(currentDate);
-});
-
 function toggleAddTask() {
     const addTaskForm = document.getElementById('add-task-form');
     if (addTaskForm.style.display === 'none') {
@@ -45,50 +39,73 @@ function addTask(event) {
     });
 }
 
+let currentDate = new Date();
+
+document.addEventListener('DOMContentLoaded', function () {
+    renderCalendar(currentDate);
+});
 
 function renderCalendar(date) {
-    const daysContainer = document.querySelector('.days');
-    daysContainer.innerHTML = ''; // Clear existing calendar days
+    const daysContainer = document.getElementById('calendar-days');
+    daysContainer.innerHTML = '';
 
-    // Assuming 30 days in a month for the example
-    // Adjust the startingDayIndex based on what day the month starts
-    const startingDayIndex = 0; // Sunday = 0, Monday = 1, ..., Saturday = 6
-    const totalDays = 30;
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const firstDayOfMonth = new Date(year, month, 1).getDay();
+    const daysInMonth = getDaysInMonth(year, month);
 
-    // Add empty days for the first row of the calendar if the month doesn't start on a Sunday
-    for (let i = 0; i < startingDayIndex; i++) {
-        const emptyDayElement = document.createElement('div');
-        emptyDayElement.className = 'calendar-day empty';
-        daysContainer.appendChild(emptyDayElement);
+    // Display the current month and year
+    document.getElementById('calendar-month-year').textContent = getMonthYearString(date);
+
+    // Create empty slots for the days before the first day of the month
+    for (let i = 0; i < firstDayOfMonth; i++) {
+        daysContainer.appendChild(createEmptyDayCell());
     }
 
-    // Add actual days of the month
-    for (let i = 1; i <= totalDays; i++) {
-        const dayElement = document.createElement('div');
-        dayElement.className = 'calendar-day';
-        dayElement.textContent = i;
-        daysContainer.appendChild(dayElement);
+    // Fill in the days of the month
+    for (let day = 1; day <= daysInMonth; day++) {
+        daysContainer.appendChild(createDayCell(day, month, year));
     }
 
-    // Add empty days for the last row of the calendar if the month doesn't end on a Saturday
-    const remainingDays = (7 - ((startingDayIndex + totalDays) % 7)) % 7;
-    for (let i = 0; i < remainingDays; i++) {
-        const emptyDayElement = document.createElement('div');
-        emptyDayElement.className = 'calendar-day empty';
-        daysContainer.appendChild(emptyDayElement);
+    // Fill in the remaining slots after the last day of the month
+    const totalSlots = Math.ceil((firstDayOfMonth + daysInMonth) / 7) * 7;
+    const remainingSlots = totalSlots - (firstDayOfMonth + daysInMonth);
+    for (let i = 0; i < remainingSlots; i++) {
+        daysContainer.appendChild(createEmptyDayCell());
     }
-
-    const monthYearDisplay = document.getElementById('calendar-month-year');
-    monthYearDisplay.textContent = getMonthYearString(date);
 }
 
-function changeMonth(delta) {
-    // Change the month by the given delta
-    currentDate.setMonth(currentDate.getMonth() + delta);
-    renderCalendar(currentDate);
+function createDayCell(day, month, year) {
+    const dayCell = document.createElement('div');
+    dayCell.className = 'calendar-day';
+    dayCell.textContent = day;
+    if (isToday(year, month, day)) {
+        dayCell.classList.add('today');
+    }
+    return dayCell;
+}
+
+function createEmptyDayCell() {
+    const emptyCell = document.createElement('div');
+    emptyCell.className = 'calendar-day empty-day';
+    return emptyCell;
 }
 
 function getMonthYearString(date) {
     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     return `${monthNames[date.getMonth()]} ${date.getFullYear()}`;
+}
+
+function getDaysInMonth(year, month) {
+    return new Date(year, month + 1, 0).getDate();
+}
+
+function isToday(year, month, day) {
+    const today = new Date();
+    return day === today.getDate() && month === today.getMonth() && year === today.getFullYear();
+}
+
+function changeMonth(delta) {
+    currentDate.setMonth(currentDate.getMonth() + delta);
+    renderCalendar(currentDate);
 }
