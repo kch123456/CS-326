@@ -19,7 +19,7 @@ body{
 }
 
 .taskDetail{
-    background-color: aqua;
+    background-color: lightblue;
     border-radius: 20px;
     width: 600px;
     height: 300px;
@@ -27,9 +27,12 @@ body{
     top: 0; /* Position taskDetail at the top */
     flex-direction: column;
 }
-
+.block p {
+    display: inline-block;
+    margin: 15; /* Remove default margin */
+}
 .discussion{
-    background-color: red;
+    background-color: lightgray;
     border-radius: 20px;
     width: 600px;
     height: 300px;
@@ -37,6 +40,26 @@ body{
     bottom: 0; /* Position discussion at the bottom */
     flex-direction: column;
 }
-.taskDetail, .discussion {
-    flex: 1; /* Allow both elements to grow and fill the available space */
+#message{
+    width: 595px;
+    height: 90px;
+    position: relative;
+    z-index: 1;
+}
+#enter {
+    position: absolute; /* Set position to absolute */
+    top: 280px;
+    left: 540px;
+    width: 50px;
+    height: 30px;
+    border-radius: 10px;
+    z-index: 2; /* Set a higher z-index value */
+    background-color: gray
+}
+.discussion{
+    flex-direction: column;
+}
+.subWrapper{
+margin: 40px;
+border: 2px black;
 }
