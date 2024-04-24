@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta viewport="width=device-width, initial-scale=1.0">
+    <title>Task Details</title>
+    <link rel="stylesheet" href="Details.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>Task Details</header>
+        <div class="task-details">
+            <div class="task-field">
+                <span class="label-bubble">Task Name:</span>
+                <input type="text" id="taskName" placeholder="Task will be loaded here" readonly>
+            </div>
+            <div class="task-field">
+                <span class="label-bubble">Due Date:</span>
+                <input type="date" id="dueDate" placeholder="Due date will be loaded here" readonly>
+            </div>
+            <div class="task-field">
+                <span class="label-bubble">Added On:</span>
+                <input type="date" id="addedOn" placeholder="Date added will be loaded here" readonly>
+            </div>
+            <div class="task-field">
+                <span class="label-bubble">Category:</span>
+                <input type="text" id="categoryInput" placeholder="Enter category or select below">
+                <button id="editCategoryBtn">Edit</button>
+                <button id="saveCategoryBtn" style="display: none;">Save</button>
+                <button id="addCategoryBtn" style="display: none;">Add</button>
+                <button id="removeCategoryBtn" style="display: none;">Remove</button>
+            </div>
+            <div id="categoryList" class="category-list"></div>
+        </div>
+    </div>
+    <script src="Details.js"></script>
+</body>
+</html>
