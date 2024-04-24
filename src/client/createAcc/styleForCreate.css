@@ -5,7 +5,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #005a9c;
+    background-color: #005a9c; /* Moved inline background color here */
 }
 
 .wrapper {
@@ -19,7 +19,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 
 .loginForm {
     width: 80%;
@@ -68,4 +67,3 @@ button[type="submit"]:hover {
 .register a:hover {
     text-decoration: underline;
 }
-
