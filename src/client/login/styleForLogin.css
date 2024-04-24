@@ -1,9 +1,9 @@
-body {
+/* body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #005a9c; /* updated background color */
+    background-color: #005a9c; 
     background-position: center;
 }
 
@@ -11,18 +11,97 @@ body {
     position: relative;
     width: 400px;
     height: 440px;
-    background: rgba(255, 255, 255, 0.8); /* semi-transparent white background */
-    border: 3px solid #ffffff; /* white border for contrast */
+    background: rgba(255, 255, 255, 0.8);
+    border: 3px solid #ffffff; 
     border-radius: 20px;
-    box-shadow: 0 4px 30px rgba(0, 90, 156, 0.5); /* shadow color matches the background */
+    box-shadow: 0 4px 30px rgba(0, 90, 156, 0.5); 
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 0.3s ease-in-out; /* smooth transitions for hover effects */
+    transition: all 0.3s ease-in-out; 
 }
 
 .wrapper:hover {
-    transform: scale(1.05); /* subtle grow effect on hover */
-    box-shadow: 0 6px 50px rgba(0, 90, 156, 0.75); /* deeper shadow on hover */
-    border-color: #00aaff; /* change border color on hover */
+    transform: scale(1.05); 
+    box-shadow: 0 6px 50px rgba(0, 90, 156, 0.75); 
+    border-color: #00aaff;
+} */
+
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #005a9c; 
 }
+
+.wrapper {
+    width: 400px;
+    height: 440px;
+    background: white; /* Changed background color to white */
+    border: 2px solid black;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.wrapper:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8); 
+    border-color: #007bff;
+}
+
+.loginForm {
+    width: 80%;
+    padding: 20px;
+}
+
+.input-box {
+    margin-bottom: 20px;
+}
+
+.input-box label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-box input {
+    width: calc(100% - 10px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.register {
+    text-align: center;
+}
+
+.register a {
+    color: #007bff; /* Changed text color to blue */
+    text-decoration: none;
+}
+
+.register a:hover {
+    text-decoration: underline;
+}
+
