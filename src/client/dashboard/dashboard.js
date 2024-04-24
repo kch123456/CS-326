@@ -112,3 +112,8 @@ function changeMonth(delta) {
     currentDate.setMonth(currentDate.getMonth() + delta);
     renderCalendar(currentDate);
 }
+
+function jumpToToday() {
+    currentDate = new Date();
+    renderCalendar(currentDate);
+}
