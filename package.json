@@ -32,7 +32,7 @@
     "dev": "",
     "test": "",
     "milestone-01": "http-server src/docs/milestone-01 -p 3000 -c-1 -o -s",
-    "milestone-02": "http-server src/client/login/login.html -p 3001 -c-1 -o -s",
+    "milestone-02": "http-server src/client -p 3001 -c-1 -o /login/login.html -s",
     "prettier": "prettier src —write",
     "validate-html": "html-validate src/**/*.html"
   },

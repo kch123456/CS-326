@@ -19,7 +19,7 @@ function addTask(event) {
     document.getElementById('add-task-form').reset();
 
     // Create the task element
-    const taskElement = document.createElement('div');
+    const taskElement = document.createElement('button'); // Change from div to button
     taskElement.className = 'task-info';
     taskElement.innerHTML = `
         <span class="task-marker"></span>
@@ -34,6 +34,9 @@ function addTask(event) {
     const calendarDays = document.querySelectorAll('.calendar-day');
     calendarDays.forEach(day => {
         if (parseInt(day.textContent, 10) === dueDay) {
+            taskElement.addEventListener('click',function(){
+                window.location.href = "/Task Detail/taskDetails.html";
+            });
             day.appendChild(taskElement);
         }
     });
