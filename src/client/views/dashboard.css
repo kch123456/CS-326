@@ -1,101 +1,73 @@
-/* Base reset */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+.task-dashboard {
+    max-width: 1000px;
+    margin: 2em auto;
+    padding: 1em;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-body,
-html {
-    height: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f4f7f6;
-    color: #5e6977;
-    line-height: 1.6em;
+.calendar {
+    margin-top: 2em;
 }
 
-/* Navigation styles */
-.navbar {
-    background-color: #2c3e50;
-    color: white;
-    padding: 1rem;
+.calendar-header {
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
+    padding: 0.5em;
+    background: #eaeaea;
+    text-align: center;
 }
 
-.nav-link {
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    margin: 0 10px;
+.calendar-header div {
+    flex-basis: 14.28%;
+    font-weight: bold;
 }
 
-.nav-link:hover,
-.nav-link:focus {
-    background-color: #34495e;
+.calendar-grid {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-/* Task list styles */
-#task-list {
-    padding: 20px;
-    max-width: 700px;
-    margin: 20px auto;
+.calendar-day {
+    width: 14.28%;
+    border-bottom: 1px solid #eaeaea;
+    border-right: 1px solid #eaeaea;
+    height: 100px;
+    position: relative;
 }
 
-.task-item {
-    background: #ffffff;
-    border-left: 5px solid #3498db;
-    margin-bottom: 10px;
-    padding: 20px;
-    cursor: pointer;
+.calendar-day:last-child {
+    border-right: none;
 }
 
-.task-item:hover {
-    background-color: #ecf0f1;
+.has-task .task-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #5cb85c;
+    border-radius: 50%;
+    bottom: 5px;
+    right: 5px;
 }
 
-/* Task form styles */
-#add-task-form {
-    background: #ecf0f1;
-    padding: 30px;
-    max-width: 700px;
-    margin: 20px auto;
-}
-
-#add-task-form input,
-#add-task-form textarea {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 5px;
-}
-
-#add-task-form button {
-    background: #3498db;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#add-task-form button:hover {
-    background: #2980b9;
-}
-
-/* Task details styles */
-#task-details {
-    padding: 20px;
-    max-width: 700px;
-    margin: 20px auto;
-    background: #ffffff;
-    border-left: 5px solid #9b59b6;
+.has-task .task-details {
     display: none;
-    /* Hidden by default */
+    position: absolute;
+    bottom: 20px;
+    right: 5px;
+    background: #f4f4f4;
+    padding: 5px;
+    border-radius: 3px;
 }
 
-/* General */
-.hidden {
-    display: none;
+.has-task:hover .task-details {
+    display: block;
+}
+
+/* Style adjustments for better look */
+.calendar-day span {
+    position: absolute;
+    top: 5px;
+    left: 5px;
 }
