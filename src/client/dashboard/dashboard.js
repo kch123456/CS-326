@@ -1,6 +1,7 @@
+let currentDate = new Date();
+
 document.addEventListener('DOMContentLoaded', function () {
-    renderCalendar();
-    // More initialization code can go here
+    renderCalendar(currentDate);
 });
 
 function toggleAddTask() {
@@ -44,7 +45,8 @@ function addTask(event) {
     });
 }
 
-function renderCalendar() {
+
+function renderCalendar(date) {
     const daysContainer = document.querySelector('.days');
     daysContainer.innerHTML = ''; // Clear existing calendar days
 
@@ -75,4 +77,18 @@ function renderCalendar() {
         emptyDayElement.className = 'calendar-day empty';
         daysContainer.appendChild(emptyDayElement);
     }
+
+    const monthYearDisplay = document.getElementById('calendar-month-year');
+    monthYearDisplay.textContent = getMonthYearString(date);
+}
+
+function changeMonth(delta) {
+    // Change the month by the given delta
+    currentDate.setMonth(currentDate.getMonth() + delta);
+    renderCalendar(currentDate);
+}
+
+function getMonthYearString(date) {
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    return `${monthNames[date.getMonth()]} ${date.getFullYear()}`;
 }

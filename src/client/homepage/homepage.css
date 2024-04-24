@@ -53,3 +53,15 @@ body {
     margin: 0;
  }
  
+ #logoutButton {
+   position: fixed;  /* Fixes the button to the viewport */
+   right: 20px;
+   top: 20px;
+   padding: 5px 10px;
+   background-color: #f44336;
+   color: white;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   z-index: 1000;  /* Ensures the button stays on top of other content */
+}
