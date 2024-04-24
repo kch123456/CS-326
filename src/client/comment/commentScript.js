@@ -1,4 +1,4 @@
-let testingTask = {"name":"milestone-02","dueDate": new Date("4/25/2024"),"status":"in progress","description":"annoying and long"};
+let testingTask = {"name":"milestone-02","dueDate": new Date("4/25/2024"),"status":"In progress","description":"annoying and long"};
 
 
  function show(){
@@ -13,13 +13,19 @@ document.getElementById('description').innerHTML = description;
 }
 function addToDiscussion(){
 let discussion = document.querySelector('.discussion');
-let message = document.getElementById('message').value;
+let message = document.getElementById('message');
 let section = document.createElement('p');
+section.style.border = "2px solid black";
 section.classList.add('subWrapper');
-section.innerHTML = message;
+section.innerHTML = message.value;
 discussion.appendChild(section);
+message.value = "";
 }
 document.getElementById('enter').addEventListener('click', function(){
+    if(document.getElementById('message').value ===""){
+        alert('empty input');
+        return;
+    }
     addToDiscussion();
     return;
 });
