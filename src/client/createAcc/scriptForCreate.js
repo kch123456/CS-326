@@ -1,6 +1,4 @@
-import PouchDB from '../pouchdb';
-
-const db = new PouchDB('userCredential');
+import db from "/src/client/server/db.js";
 
 async function createAcc() {
     let userName = document.getElementById('UserName').value;
@@ -16,11 +14,7 @@ async function createAcc() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const registerButton = document.getElementById('register');
-    if (registerButton) {
-        registerButton.addEventListener('click', async () => {
-            await createAcc();
-        });
-    }
+document.getElementById('register').addEventListener('click',async function(){
+    await createAcc();
+    return;
 });

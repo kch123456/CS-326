@@ -29,4 +29,8 @@ document.getElementById('enter').addEventListener('click', function(){
     addToDiscussion();
     return;
 });
+document.getElementById('x').addEventListener('click',function(){
+    window.location.href = "/homepage/homepage.html";
+    return;
+})
 show();
