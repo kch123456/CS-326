@@ -1,73 +1,68 @@
-.task-dashboard {
-    max-width: 1000px;
-    margin: 2em auto;
-    padding: 1em;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(255, 255, 255);
+    color: white;
+    margin: 0;
+    padding: 0;
 }
-
+.navbar {
+    background-color: rgb(0, 80, 145);;
+    overflow: hidden;
+    padding: 0 10px;
+}
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
 .calendar {
-    margin-top: 2em;
+    max-width: 900px;
+    margin: 20px auto;
 }
-
-.calendar-header {
+.calendar-day {
+    border: 1px solid #555;
+    min-height: 100px;
+    list-style-type: none;
+    padding: 10px;
+}
+.weekdays {
+    background-color: rgb(0, 80, 145);
+    padding: 10px 0;
     display: flex;
-    justify-content: space-between;
-    padding: 0.5em;
-    background: #eaeaea;
+    justify-content: space-around;
+}
+.weekdays div, .days div {
+    flex-basis: 14.28%;
     text-align: center;
 }
-
-.calendar-header div {
-    flex-basis: 14.28%;
-    font-weight: bold;
-}
-
-.calendar-grid {
+.days {
     display: flex;
     flex-wrap: wrap;
 }
-
-.calendar-day {
-    width: 14.28%;
-    border-bottom: 1px solid #eaeaea;
-    border-right: 1px solid #eaeaea;
-    height: 100px;
-    position: relative;
-}
-
-.calendar-day:last-child {
-    border-right: none;
-}
-
-.has-task .task-dot {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background: #5cb85c;
+.task-marker {
+    height: 10px;
+    width: 10px;
+    background-color: #f07f0d;
     border-radius: 50%;
-    bottom: 5px;
-    right: 5px;
+    display: inline-block;
+    margin-right: 5px;
 }
-
-.has-task .task-details {
-    display: none;
-    position: absolute;
-    bottom: 20px;
-    right: 5px;
-    background: #f4f4f4;
+.task-info {
+    background-color: rgb(0, 80, 145);;
+    margin-top: 5px;
     padding: 5px;
-    border-radius: 3px;
+    border-left: 3px solid #f07f0d;
+    color: #ecf0f1;
 }
-
-.has-task:hover .task-details {
-    display: block;
-}
-
-/* Style adjustments for better look */
-.calendar-day span {
-    position: absolute;
-    top: 5px;
-    left: 5px;
+.task-info span {
+    font-size: 0.8em;
+    margin-left: 5px;
 }
