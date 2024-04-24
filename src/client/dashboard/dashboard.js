@@ -1,4 +1,3 @@
-
 let currentDate = new Date();
 
 document.addEventListener('DOMContentLoaded', function () {
