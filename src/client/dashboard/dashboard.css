@@ -159,3 +159,39 @@ body {
     color: black;
     /* Making sure the date is visible */
 }
+
+.calendar-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-controls button {
+    background-color: #007bff;
+    /* Control button background color */
+    color: white;
+    /* Text color for visibility */
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.calendar-controls button:hover {
+    background-color: #0056b3;
+    /* Darker blue on hover */
+}
+
+#calendar-month-year {
+    font-size: 24px;
+    color: 007bff;
+    /* Text color to match buttons */
+    padding: 10px 20px;
+    /* Padding to align with button sizes */
+    background-color: #007bff;
+    /* Background color to match buttons */
+    border-radius: 5px;
+    /* Rounded corners like buttons */
+}
