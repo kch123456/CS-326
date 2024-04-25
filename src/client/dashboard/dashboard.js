@@ -1,4 +1,5 @@
 let currentDate = new Date();
+let tasksData = {}; 
 
 document.addEventListener('DOMContentLoaded', function () {
     renderCalendar(currentDate);
@@ -13,6 +14,35 @@ function toggleAddTask() {
     }
 }
 
+
+function openPanel(taskId, event) {
+    const taskData = tasksData[taskId];
+    const panel = document.getElementById('taskDetailsPanel');
+
+    document.getElementById('taskName').value = taskData.taskName;
+    document.getElementById('dueDate').value = taskData.taskDate;
+    document.getElementById('addedOn').value = new Date().toISOString().slice(0, 10);
+    loadCategories(taskData.categories);
+
+    panel.style.top = `${event.clientY + window.scrollY + 10}px`;
+    panel.style.left = `${event.clientX + 10}px`;
+    panel.style.display = 'block';
+}
+
+function loadCategories(categories) {
+    const categoriesContainer = document.getElementById('selectedCategories');
+    categoriesContainer.innerHTML = ''; // Clear previous categories
+    categories.forEach(category => {
+        const categoryElement = document.createElement('div');
+        categoryElement.textContent = category;
+        categoryElement.className = 'category-bubble';
+        categoriesContainer.appendChild(categoryElement);
+    });
+}
+
+function closePanel() {
+    document.getElementById('taskDetailsPanel').style.display = 'none';
+}
 function addTask(event) {
     event.preventDefault();
 
@@ -24,6 +54,9 @@ function addTask(event) {
     // Clear the form
     document.getElementById('add-task-form').reset();
 
+    //Flo added
+    const taskID = Date.now();
+
     // Create the task element
     const taskElement = document.createElement('div');
     taskElement.className = 'task-info';
@@ -31,6 +64,15 @@ function addTask(event) {
         <span class="task-marker"></span>
         <span>${taskName}</span> - <span>${taskDescription}</span>
     `;
+    //Flo added
+    taskElement.onclick = (event) => openPanel(taskID, event);
+    tasksData[taskID] = {
+        taskName,
+        taskDate,
+        taskDescription,
+        categories: [] // Initialize with empty categories array
+    };
+
 
     // Assuming the date is in the format "YYYY-MM-DD"
     const dateParts = taskDate.split('-');
@@ -44,6 +86,7 @@ function addTask(event) {
         }
     });
 }
+
 
 
 function renderCalendar(date) {
@@ -92,3 +135,4 @@ function getMonthYearString(date) {
     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     return `${monthNames[date.getMonth()]} ${date.getFullYear()}`;
 }
+

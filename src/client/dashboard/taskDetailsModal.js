@@ -1,14 +1,13 @@
 function openPanel(taskName, taskDate, taskDescription) {
     document.getElementById('taskName').value = taskName;
     document.getElementById('dueDate').value = taskDate;
-    document.getElementById('addedOn').value = new Date().toISOString().slice(0, 10); // Example for added date
-    document.getElementById('taskDetailsPanel').classList.add('open');
+    document.getElementById('addedOn').value = new Date().toISOString().slice(0, 10);
+    document.getElementById('taskDetailsPanel').style.display = 'block';
 }
 
 function closePanel() {
-    document.getElementById('taskDetailsPanel').classList.remove('open');
+    document.getElementById('taskDetailsPanel').style.display = 'none';
 }
-
 document.getElementById('editCategoryBtn').addEventListener('click', function() {
     var section = document.getElementById('categoryEditSection');
     section.style.display = (section.style.display === 'none' || section.style.display === '') ? 'block' : 'none';
@@ -84,10 +83,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function getRandomLightColor() {
-    var letters = 'BCDEF';
+    var letters = '0123456789ABCDEF';
     var color = '#';
     for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * letters.length)];
+        color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
 }

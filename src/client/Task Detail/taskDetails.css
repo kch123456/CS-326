@@ -1,15 +1,15 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    font-family: Arial, sans-serif;
     background-color: #f6f6f9;
     margin: 0;
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .wrapper {
-    width: 600px;
+    width: 320px;
     border-radius: 15px;
     background-color: #FFFFFF;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -24,8 +24,8 @@ header {
     border-radius: 10px;
     text-align: center;
     margin-bottom: 20px;
-    padding: 20px;
-    font-size: 24px;
+    padding: 10px;
+    font-size: 20px;
 }
 
 .task-details {
@@ -36,70 +36,69 @@ header {
 .task-field {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    justify-content: space-between;
 }
 
 .label-bubble {
+    display: inline-flex;
     background-color: #005a9c;
-    border-radius: 10px;
-    padding: 5px 10px;
     color: #FFFFFF;
-    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
     margin-right: 10px;
+    align-items: center;
 }
 
 input[type="text"], input[type="date"] {
-    padding: 8px;
     flex-grow: 1;
+    padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
     background: #FFF;
 }
 
-.category-controls {
+.selected-categories {
     display: flex;
-    justify-content: center;
-    margin-top: 10px;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
-.icon {
-    display: inline-block;
-    background-color: #4CAF50; /* Green for add */
-    color: white;
-    border-radius: 50%;
-    padding: 5px;
-    width: 25px;
-    height: 25px;
-    text-align: center;
-    line-height: 15px;
-    margin: 2px;
-    cursor: pointer;
-}
-
-.icon.remove-category {
-    background-color: #f44336; /* Red for remove */
-}
-
-.category-list {
-    padding: 10px;
-    margin-top: 10px;
+.category-bubble {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-right: 5px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    color: #333;
+    margin-top: 5px;
 }
 
 .category-item {
-    display: inline-block;
-    background-color: #005a9c;
-    color: #FFFFFF;
-    border-radius: 10px;
-    padding: 5px 10px;
+    display: flex;
+    align-items: center;
     margin: 5px;
     cursor: pointer;
-}
-.category-item.deletable {
-    background-color: #ff6347; /* Tomato red, indicating deletable */
-    color: white;
-    border-color: #ff6347;
+    background-color: #f0f0f0; /* Light background for each category */
+    border-radius: 10px; /* Rounded edges for the bubble */
+    padding: 5px 10px; /* Padding inside the bubble */
 }
 
-.category-item.deletable:hover {
-    background-color: #ff2d00; /* Darker red for hover on deletable items */
+.category-item span {
+    font-size: 14px;
+    display: inline-block;
+}
+
+.check-mark {
+    visibility: hidden; /* Hidden by default and only shown when selected */
+    margin-left: 5px;
+}
+
+.remove-btn {
+    cursor: pointer;
+    position: absolute;
+    right: 10px; /* Positioned on the right inside the bubble */
+    top: -2px; /* Adjusted to float on top of the bubble */
 }

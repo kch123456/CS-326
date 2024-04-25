@@ -2,35 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta viewport="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Details</title>
     <link rel="stylesheet" href="taskDetails.css">
 </head>
 <body>
-    <div class="wrapper">
+    <div id="taskDetailsPanel" class="wrapper">
         <header>Task Details</header>
         <div class="task-details">
             <div class="task-field">
                 <span class="label-bubble">Task Name:</span>
-                <input type="text" id="taskName" placeholder="Task will be loaded here" readonly>
+                <input type="text" id="taskName" readonly>
             </div>
             <div class="task-field">
                 <span class="label-bubble">Due Date:</span>
-                <input type="date" id="dueDate" placeholder="Due date will be loaded here" readonly>
+                <input type="date" id="dueDate" readonly>
             </div>
             <div class="task-field">
                 <span class="label-bubble">Added On:</span>
-                <input type="date" id="addedOn" placeholder="Date added will be loaded here" readonly>
+                <input type="date" id="addedOn" readonly>
             </div>
             <div class="task-field">
                 <span class="label-bubble">Category:</span>
-                <input type="text" id="categoryInput" placeholder="Enter category or select below">
+                <div id="selectedCategories" class="selected-categories"></div>
                 <button id="editCategoryBtn">Edit</button>
-                <button id="saveCategoryBtn" style="display: none;">Save</button>
-                <button id="addCategoryBtn" style="display: none;">Add</button>
-                <button id="removeCategoryBtn" style="display: none;">Remove</button>
             </div>
-            <div id="categoryList" class="category-list"></div>
+            <div id="categoryEditSection" class="category-edit-section" style="display: none;">
+                <input type="text" id="newCategoryName" placeholder="Add new category">
+                <button id="addNewCategoryBtn">Add</button>
+                <div id="existingCategories" class="category-list"></div>
+                <button id="applyCategoriesBtn">Apply Selected Categories</button>
+            </div>
         </div>
     </div>
     <script src="taskDetails.js"></script>

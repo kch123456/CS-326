@@ -1,0 +1,96 @@
+#taskDetailsPanel {
+    position: absolute;  
+    width: 320px;        /* Adjusted width to give more space */
+    max-height: 90vh;    /* Use viewport height to make it responsive */
+    display: none;       
+    z-index: 1000;       /* Higher z-index to ensure it's on top */
+    overflow: auto;      /* Allow scrolling inside the panel */
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    padding: 20px;       /* Padding for aesthetic spacing around content */
+}
+
+#taskDetailsPanel body {
+    font-family: Arial, sans-serif;
+    background-color: #f6f6f9;
+}
+
+#taskDetailsPanel .wrapper {
+    border-radius: 15px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#taskDetailsPanel header {
+    background-color: #005a9c;
+    color: #FFFFFF;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#taskDetailsPanel .task-details {
+    flex-direction: column;
+}
+
+#taskDetailsPanel .task-field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+#taskDetailsPanel .label-bubble {
+    background-color: #005a9c;
+    color: #FFFFFF;
+    padding: 5px 10px;
+    border-radius: 10px;
+    align-items: center;
+}
+
+#taskDetailsPanel input[type="text"], #taskDetailsPanel input[type="date"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #FFF;
+}
+
+#taskDetailsPanel .selected-categories, #taskDetailsPanel .category-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#taskDetailsPanel .category-bubble, #taskDetailsPanel .category-item {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+#taskDetailsPanel .category-item {
+    cursor: pointer;
+    margin: 5px;
+}
+
+#taskDetailsPanel .category-item span {
+    display: inline-block;
+    font-size: 14px;
+}
+
+#taskDetailsPanel .check-mark {
+    visibility: hidden;
+}
+
+#taskDetailsPanel .remove-btn {
+    position: absolute;
+    right: 10px;
+    top: -2px;
+    cursor: pointer;
+}
