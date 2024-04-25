@@ -13,4 +13,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
  });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const createAccountBtn = document.getElementById('createAccountBtn');
+ 
+    createAccountBtn.addEventListener('click', function(event) {
+        window.location.href = '/createAcc/createAcc.html';
+    });
+});
+
+
+
  

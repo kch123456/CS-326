@@ -81,7 +81,7 @@ body {
 
 .task-info {
     background-color: rgb(0, 80, 145);
-    ;
+    align-items: left;
     margin-top: 5px;
     padding: 5px;
     border-left: 3px solid #f07f0d;
@@ -118,7 +118,7 @@ body {
 }
 
 #add-task-form button {
-    background-color: #007bff;
+    background-color: rgb(0, 80, 145);
     color: white;
     font-size: 16px;
     border: none;
@@ -180,7 +180,7 @@ body {
 }
 
 .calendar-controls button:hover {
-    background-color: rgb(0, 80, 145);
+    background-color: rgb(0, 58, 105);
     /* Darker blue on hover */
 }
 
@@ -194,4 +194,37 @@ body {
     /* Background color to match buttons */
     border-radius: 5px;
     /* Rounded corners like buttons */
+}
+
+.calendar-day {
+    /* ... existing styles ... */
+    position: relative;
+}
+
+.calendar-day .date {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-weight: bold;
+}
+
+.calendar-day .task {
+    position: absolute;
+    left: 5px;
+    top: 20px;
+    margin-right: 5px;
+}
+
+.empty-day {
+    background-color: #f0f0f0; /* Slightly darker background for empty cells */
+}
+
+.empty-day::before {
+    content: "-";
+    visibility: hidden;
+}
+
+.today {
+    background-color: #007bff;
+    color: white;
 }
