@@ -94,3 +94,18 @@
     top: -2px;
     cursor: pointer;
 }
+#taskDetailsPanel .close-btn {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #cc0000; /* Red color for close button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    align-self: center; /* Center the button within the flex container */
+}
+
+#taskDetailsPanel .close-btn:hover {
+    background-color: #e60000; /* Slightly lighter red on hover */
+}

@@ -1,3 +1,4 @@
+let tasksData= {}
 function toggleAddTask() {
     const addTaskForm = document.getElementById('add-task-form');
     if (addTaskForm.style.display === 'none') {
@@ -6,21 +7,22 @@ function toggleAddTask() {
         addTaskForm.style.display = 'none';
     }
 }
-
-
 function openPanel(taskId, event) {
     const taskData = tasksData[taskId];
     const panel = document.getElementById('taskDetailsPanel');
+
 
     document.getElementById('taskName').value = taskData.taskName;
     document.getElementById('dueDate').value = taskData.taskDate;
     document.getElementById('addedOn').value = new Date().toISOString().slice(0, 10);
     loadCategories(taskData.categories);
 
+
     panel.style.top = `${event.clientY + window.scrollY + 10}px`;
     panel.style.left = `${event.clientX + 10}px`;
     panel.style.display = 'block';
 }
+
 
 function loadCategories(categories) {
     const categoriesContainer = document.getElementById('selectedCategories');
@@ -35,6 +37,9 @@ function loadCategories(categories) {
 function closePanel() {
     document.getElementById('taskDetailsPanel').style.display = 'none';
 }
+
+
+
 function addTask(event) {
     event.preventDefault();
 
@@ -45,12 +50,6 @@ function addTask(event) {
 
     // Clear the form
     document.getElementById('add-task-form').reset();
-
-    
-    
-    
-    
-    //Flo added
     const taskID = Date.now();
 
     // Create the task element
@@ -60,7 +59,7 @@ function addTask(event) {
         <span class="task-marker"></span>
         <span>${taskName}</span> - <span>${taskDescription}</span>
     `;
-    //Flo added
+
     taskElement.onclick = (event) => openPanel(taskID, event);
     tasksData[taskID] = {
         taskName,
@@ -78,19 +77,13 @@ function addTask(event) {
     const calendarDays = document.querySelectorAll('.calendar-day');
     calendarDays.forEach(day => {
         if (parseInt(day.textContent, 10) === dueDay) {
-            taskElement.addEventListener('click',function(){
-                window.location.href = "/Task Detail/taskDetails.html";
-            });
+            //taskElement.addEventListener('click',function(){
+                //window.location.href = "/Task Detail/taskDetails.html";
+            //});
             day.appendChild(taskElement);
         }
     });
 }
-
-let currentDate = new Date();
-
-document.addEventListener('DOMContentLoaded', function () {
-    renderCalendar(currentDate);
-});
 
 let currentDate = new Date();
 
@@ -147,25 +140,6 @@ function createEmptyDayCell() {
 function getMonthYearString(date) {
     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     return `${monthNames[date.getMonth()]} ${date.getFullYear()}`;
-}
-
-function getDaysInMonth(year, month) {
-    return new Date(year, month + 1, 0).getDate();
-}
-
-function isToday(year, month, day) {
-    const today = new Date();
-    return day === today.getDate() && month === today.getMonth() && year === today.getFullYear();
-}
-
-function changeMonth(delta) {
-    currentDate.setMonth(currentDate.getMonth() + delta);
-    renderCalendar(currentDate);
-}
-
-function jumpToToday() {
-    currentDate = new Date();
-    renderCalendar(currentDate);
 }
 
 function getDaysInMonth(year, month) {
