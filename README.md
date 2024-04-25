@@ -24,6 +24,20 @@ Installation
 4. Start the program using "npm run milestone-02"
 5. Access the web through at "http://localhost:3000"
 
+Usage
+
+Account creation
+User will be create an account using the create account link in the login page. Upon successful registration, users are redirected to the login page to log in to their newly created account. 
+
+Home Page
+Once the user log in to the website, the user be directed to the home page where they see the info about this project, our objective and the team information. 
+
+Dash Board
+By clicking the "continue to dashboard' button. User will be directed to the dashboard page. The dashboard page presents users with a calendar view, providing an organized overview of their tasks and deadlines. Within this page, user can create a task by clicking the "add task button" on the top left of the website. This will allow the user to create an task with name, due date and description. Concurrently, this task will show up on the calendar. 
+
+Task Detail
+When user click on this task they will be take to the task detail page, where they can get more information about this task. Also they will be able to edit and categorize this task. 
+
 
 
 
