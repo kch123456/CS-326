@@ -22,7 +22,7 @@ Installation
 2. Navigate to the project directory
 3. Run "npm install" on the terminal to install all dependencies
 4. Start the program using "npm run milestone-02"
-5. Access the web through at "http://localhost:3000"
+5. Access the web through at "http://localhost:3001"
 
 Usage
 

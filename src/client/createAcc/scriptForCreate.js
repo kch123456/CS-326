@@ -1,8 +1,7 @@
-// import db from "/src/client/server/db.js";
 
 // async function createAcc() {
 //     let userName = document.getElementById('UserName').value;
-//     let password = document.getElementById('password').value;
+//     let password = document.getElementById('Password').value;
 
 //     const user = { 'userName': userName, 'password': password };
 
@@ -22,7 +21,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     let registerButton = document.getElementById("register");
 
-    registerButton.addEventListener("click", function(event) {
+    registerButton.addEventListener("click", async function(event) {
+        await createAcc();
         event.preventDefault(); 
         window.location.href = "/login/login.html";
     });
