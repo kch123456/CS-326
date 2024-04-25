@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function() {
     let registerButton = document.getElementById("register");
 
     registerButton.addEventListener("click", async function(event) {
-        await createAcc();
         event.preventDefault(); 
         window.location.href = "/login/login.html";
     });
