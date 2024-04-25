@@ -54,7 +54,7 @@ body {
  }
  
  #logoutButton {
-   position: fixed;  /* Fixes the button to the viewport */
+   position: fixed; 
    right: 20px;
    top: 20px;
    padding: 5px 10px;
@@ -63,5 +63,5 @@ body {
    border: none;
    border-radius: 5px;
    cursor: pointer;
-   z-index: 1000;  /* Ensures the button stays on top of other content */
+   z-index: 1000; 
 }
