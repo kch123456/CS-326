@@ -13,7 +13,7 @@ For milestone 2, the relevant work lies within the /src/client directory. Within
 
 1. Login: Handles the functionality related to user authentication and login.
 2. CreateAcc: Manages the process of user account creation.
-3. Homepage: Contains our objective, and team info
+3. Homepage: Contains our objective, and team info.
 4. Dashboard: Users can add their tasks and view important dates in this interface.
 5. Task Detail: Handles the display and management of individual task details.
 
