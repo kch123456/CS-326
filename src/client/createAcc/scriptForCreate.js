@@ -18,11 +18,11 @@
 //     return;
 // });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     let registerButton = document.getElementById("register");
 
-    registerButton.addEventListener("click", async function(event) {
-        event.preventDefault(); 
+    registerButton.addEventListener("click", async function (event) {
+        event.preventDefault();
         window.location.href = "/login/login.html";
     });
 });

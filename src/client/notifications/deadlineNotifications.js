@@ -20,7 +20,7 @@ function displayNotifications(notifications) {
     notifications.forEach(notification => {
         const div = document.createElement('div');
         div.className = 'notification';
-        div.dataset.id = notification.id; 
+        div.dataset.id = notification.id;
         div.innerHTML = `
             <span class="close-btn" onclick="removeNotification(${notification.id})">&times;</span>
             <div class="notification-content">Reminder: Your deadline for ${notification.task} is coming up on ${notification.date}.</div>

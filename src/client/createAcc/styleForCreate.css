@@ -5,13 +5,15 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #005a9c; /* Moved inline background color here */
+    background-color: #005a9c;
+    /* Moved inline background color here */
 }
 
 .wrapper {
     width: 400px;
     height: 440px;
-    background: white; /* Changed to white */
+    background: white;
+    /* Changed to white */
     border: 2px solid black;
     border-radius: 20px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);

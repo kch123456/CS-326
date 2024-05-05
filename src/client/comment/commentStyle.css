@@ -1,4 +1,4 @@
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,7 +6,8 @@ body{
     background-position: center;
     background-color: white;
 }
-.wrapper{
+
+.wrapper {
     position: relative;
     width: 600px;
     height: 600px;
@@ -15,11 +16,13 @@ body{
     border-radius: 20px;
     box-shadow: 0 0 30px rgba(0, 0, 0, .5);
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
 }
-#taskName{
+
+#taskName {
     background-color: #005a9c;
 }
+
 #x {
     position: relative;
     bottom: 289px;
@@ -30,13 +33,15 @@ body{
     background-color: transparent;
     border-color: white;
     box-shadow: none;
-  }
-#cross{
+}
+
+#cross {
     position: relative;
     height: 15px;
     width: 15px;
 }
-.taskDetail{
+
+.taskDetail {
     background-color: white;
     border-radius: 20px;
     width: 600px;
@@ -45,53 +50,73 @@ body{
     top: 0;
     flex-direction: column;
 }
+
 .block p {
     display: inline-block;
-    margin: 15; 
+    margin: 15;
 }
-.discussion{
-    background-color:white;
+
+.discussion {
+    background-color: white;
     border-radius: 20px;
     width: 600px;
     height: 300px;
     position: absolute;
-    bottom: 0; 
+    bottom: 0;
     flex-direction: column;
     overflow-y: auto;
 }
-#message{
+
+#message {
     width: 595px;
     height: 90px;
     position: relative;
     z-index: 1;
     border-radius: 10px;
 }
+
 #enter {
-    position: absolute; 
+    position: absolute;
     top: 280px;
     left: 520px;
-    width: 70px; /* Reduce width */
-    height: 30px; /* Reduce height */
-    border-radius: 15px; /* Smaller border radius */
+    width: 70px;
+    /* Reduce width */
+    height: 30px;
+    /* Reduce height */
+    border-radius: 15px;
+    /* Smaller border radius */
     z-index: 2;
-    background-color: black; /* Green background color */
-    color: white; /* Text color */
-    font-weight: bold; /* Bold text */
-    font-size: 14px; /* Font size */
-    text-align: center; /* Center text horizontally */
-    line-height: 30px; /* Center text vertically */
-    cursor: pointer; /* Cursor style on hover */
-    transition: background-color 0.3s; /* Smooth transition for background color change */
-    border: none; /* Remove border */
-    outline: none; /* Remove outline */
+    background-color: black;
+    /* Green background color */
+    color: white;
+    /* Text color */
+    font-weight: bold;
+    /* Bold text */
+    font-size: 14px;
+    /* Font size */
+    text-align: center;
+    /* Center text horizontally */
+    line-height: 30px;
+    /* Center text vertically */
+    cursor: pointer;
+    /* Cursor style on hover */
+    transition: background-color 0.3s;
+    /* Smooth transition for background color change */
+    border: none;
+    /* Remove border */
+    outline: none;
+    /* Remove outline */
 }
 
 #enter:hover {
-    background-color: rgb(82, 82, 82); /* Darker green color on hover */
+    background-color: rgb(82, 82, 82);
+    /* Darker green color on hover */
 }
-.discussion{
+
+.discussion {
     flex-direction: column;
 }
-.subWrapper{
-margin: 40px;
+
+.subWrapper {
+    margin: 40px;
 }
