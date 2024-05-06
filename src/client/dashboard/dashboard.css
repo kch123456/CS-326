@@ -216,7 +216,8 @@ body {
 }
 
 .empty-day {
-    background-color: #f0f0f0; /* Slightly darker background for empty cells */
+    background-color: #f0f0f0;
+    /* Slightly darker background for empty cells */
 }
 
 .empty-day::before {

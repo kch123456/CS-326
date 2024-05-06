@@ -8,13 +8,13 @@ function openPanel(taskName, taskDate, taskDescription) {
 function closePanel() {
     document.getElementById('taskDetailsPanel').style.display = 'none';
 }
-document.getElementById('editCategoryBtn').addEventListener('click', function() {
+document.getElementById('editCategoryBtn').addEventListener('click', function () {
     var section = document.getElementById('categoryEditSection');
     section.style.display = (section.style.display === 'none' || section.style.display === '') ? 'block' : 'none';
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('addNewCategoryBtn').addEventListener('click', function() {
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('addNewCategoryBtn').addEventListener('click', function () {
         var newCategoryName = document.getElementById('newCategoryName').value.trim();
         if (newCategoryName) {
             const existingCategories = document.querySelectorAll('.category-item span.name');
@@ -40,13 +40,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 removeBtn.textContent = ' x';
                 removeBtn.className = 'remove-btn';
                 removeBtn.style.marginLeft = '10px';
-                removeBtn.onclick = function(event) {
+                removeBtn.onclick = function (event) {
                     event.stopPropagation(); // Prevent toggling selection when removing
                     div.remove();
                 };
                 div.appendChild(removeBtn);
 
-                div.onclick = function() {
+                div.onclick = function () {
                     var checkMark = this.querySelector('.check-mark');
                     if (checkMark.style.visibility === 'hidden') {
                         checkMark.style.visibility = 'visible';
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('newCategoryName').value = '';
     });
 
-    document.getElementById('applyCategoriesBtn').addEventListener('click', function() {
+    document.getElementById('applyCategoriesBtn').addEventListener('click', function () {
         const selectedItems = document.querySelectorAll('.category-item.selected');
         const categoryContainer = document.getElementById('selectedCategories');
         categoryContainer.innerHTML = '';

@@ -12,7 +12,7 @@ body {
     width: 320px;
     border-radius: 15px;
     background-color: #FFFFFF;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -50,7 +50,8 @@ header {
     align-items: center;
 }
 
-input[type="text"], input[type="date"] {
+input[type="text"],
+input[type="date"] {
     flex-grow: 1;
     padding: 8px;
     border: 1px solid #ccc;
@@ -81,9 +82,12 @@ input[type="text"], input[type="date"] {
     align-items: center;
     margin: 5px;
     cursor: pointer;
-    background-color: #f0f0f0; /* Light background for each category */
-    border-radius: 10px; /* Rounded edges for the bubble */
-    padding: 5px 10px; /* Padding inside the bubble */
+    background-color: #f0f0f0;
+    /* Light background for each category */
+    border-radius: 10px;
+    /* Rounded edges for the bubble */
+    padding: 5px 10px;
+    /* Padding inside the bubble */
 }
 
 .category-item span {
@@ -92,13 +96,16 @@ input[type="text"], input[type="date"] {
 }
 
 .check-mark {
-    visibility: hidden; /* Hidden by default and only shown when selected */
+    visibility: hidden;
+    /* Hidden by default and only shown when selected */
     margin-left: 5px;
 }
 
 .remove-btn {
     cursor: pointer;
     position: absolute;
-    right: 10px; /* Positioned on the right inside the bubble */
-    top: -2px; /* Adjusted to float on top of the bubble */
+    right: 10px;
+    /* Positioned on the right inside the bubble */
+    top: -2px;
+    /* Adjusted to float on top of the bubble */
 }

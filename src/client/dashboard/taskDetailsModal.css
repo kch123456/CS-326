@@ -1,14 +1,19 @@
 #taskDetailsPanel {
-    position: absolute;  
-    width: 320px;        /* Adjusted width to give more space */
-    max-height: 90vh;    /* Use viewport height to make it responsive */
-    display: none;       
-    z-index: 1000;       /* Higher z-index to ensure it's on top */
-    overflow: auto;      /* Allow scrolling inside the panel */
+    position: absolute;
+    width: 320px;
+    /* Adjusted width to give more space */
+    max-height: 90vh;
+    /* Use viewport height to make it responsive */
+    display: none;
+    z-index: 1000;
+    /* Higher z-index to ensure it's on top */
+    overflow: auto;
+    /* Allow scrolling inside the panel */
     background-color: #FFFFFF;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     border-radius: 8px;
-    padding: 20px;       /* Padding for aesthetic spacing around content */
+    padding: 20px;
+    /* Padding for aesthetic spacing around content */
 }
 
 #taskDetailsPanel body {
@@ -19,7 +24,7 @@
 #taskDetailsPanel .wrapper {
     border-radius: 15px;
     background-color: #FFFFFF;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 #taskDetailsPanel header {
@@ -51,20 +56,23 @@
     align-items: center;
 }
 
-#taskDetailsPanel input[type="text"], #taskDetailsPanel input[type="date"] {
+#taskDetailsPanel input[type="text"],
+#taskDetailsPanel input[type="date"] {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
     background: #FFF;
 }
 
-#taskDetailsPanel .selected-categories, #taskDetailsPanel .category-list {
+#taskDetailsPanel .selected-categories,
+#taskDetailsPanel .category-list {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
 }
 
-#taskDetailsPanel .category-bubble, #taskDetailsPanel .category-item {
+#taskDetailsPanel .category-bubble,
+#taskDetailsPanel .category-item {
     background-color: #e0e0e0;
     border-radius: 10px;
     padding: 5px 10px;
@@ -94,18 +102,22 @@
     top: -2px;
     cursor: pointer;
 }
+
 #taskDetailsPanel .close-btn {
     padding: 10px 20px;
     margin-top: 10px;
-    background-color: #cc0000; /* Red color for close button */
+    background-color: #cc0000;
+    /* Red color for close button */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    align-self: center; /* Center the button within the flex container */
+    align-self: center;
+    /* Center the button within the flex container */
 }
 
 #taskDetailsPanel .close-btn:hover {
-    background-color: #e60000; /* Slightly lighter red on hover */
+    background-color: #e60000;
+    /* Slightly lighter red on hover */
 }

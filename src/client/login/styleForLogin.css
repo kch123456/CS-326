@@ -35,13 +35,14 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #005a9c; 
+    background-color: #005a9c;
 }
 
 .wrapper {
     width: 400px;
     height: 440px;
-    background: white; /* Changed background color to white */
+    background: white;
+    /* Changed background color to white */
     border: 2px solid black;
     border-radius: 20px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
@@ -52,8 +53,8 @@ body {
 }
 
 .wrapper:hover {
-    transform: scale(1.05); 
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8); 
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
     border-color: #007bff;
 }
 
@@ -97,11 +98,11 @@ button[type="submit"]:hover {
 }
 
 .register a {
-    color: #007bff; /* Changed text color to blue */
+    color: #007bff;
+    /* Changed text color to blue */
     text-decoration: none;
 }
 
 .register a:hover {
     text-decoration: underline;
 }
-

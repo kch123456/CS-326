@@ -1,4 +1,4 @@
-let tasksData= {}
+let tasksData = {}
 function toggleAddTask() {
     const addTaskForm = document.getElementById('add-task-form');
     if (addTaskForm.style.display === 'none') {
@@ -78,7 +78,7 @@ function addTask(event) {
     calendarDays.forEach(day => {
         if (parseInt(day.textContent, 10) === dueDay) {
             //taskElement.addEventListener('click',function(){
-                //window.location.href = "/Task Detail/taskDetails.html";
+            //window.location.href = "/Task Detail/taskDetails.html";
             //});
             day.appendChild(taskElement);
         }
