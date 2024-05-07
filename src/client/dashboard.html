@@ -8,27 +8,33 @@
 
 
 
-    <link rel="stylesheet" href="dashboard.css">
-    <link rel="stylesheet" href="taskDetailsModal.css">
-
-
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/taskDetailsModal.css">
+    <script src="js/dashboard.js" type="module" defer></script>
+    <script src="js/taskDetailsModal.js" type="module" defer></script>
 
 </head>
 
 <body>
     <div class="calendar-controls">
-        <button onclick="changeMonth(-1)">&#10094;</button>
+        <!-- <button onclick="changeMonth(-1)">&#10094;</button> -->
+        <button id="changeMonth-1">&#10094;</button>
         <span id="calendar-month-year"></span>
-        <button onclick="changeMonth(1)">&#10095;</button>
-        <button onclick="jumpToToday()">Today</button>
+        <!-- <button onclick="changeMonth(1)">&#10095;</button> -->
+        <button id="changeMonth+1">&#10095;</button>
+        <!-- <button onclick="jumpToToday()">Today</button> -->
+        <button id="jumpToToday">Today</button>
 
     </div>
     <nav id="navbar" class="navbar">
-        <a href="/homepage/homepage.html" class="nav-link">Homepage</a>
-        <a href="javascript:void(0);" onclick="toggleAddTask()">Add Task</a>
+        <a href="/homepage.html" class="nav-link">Homepage</a>
+        <!-- <a href="javascript:void(0);" onclick="toggleAddTask()">Add Task</a> -->
+        <a href="javascript:void(0);" id="toggleAddTask">Add Task</a>
+
     </nav>
 
-    <form id="add-task-form" style="display: none;" onsubmit="addTask(event)">
+    <!-- <form id="add-task-form" style="display: none;" onsubmit="addTask(event)"> -->
+        <form id="add-task-form" style="display: none;">
         <input type="text" id="task-name" placeholder="Task Name" required />
         <textarea id="task-desc" placeholder="Task Description" required></textarea>
         <input type="date" id="task-due-date" required />
@@ -105,7 +111,8 @@
                 <div id="existingCategories" class="category-list"></div>
                 <button id="applyCategoriesBtn">Apply Selected Categories</button>
             </div>
-            <button onclick="closePanel()" class="close-btn">Close</button>
+            <!-- <button onclick="closePanel()" class="close-btn">Close</button> -->
+            <button id="closePanel" class="close-btn">Close</button>
         </div>
     </div>
     <script src="taskDetailsModal.js"></script>

@@ -1,31 +1,42 @@
+import exp from 'constants';
 import express from 'express';
 import path from 'path';
 
+
 const app = express();
-const PORT = process.env.PORT || 3000;
+const scriptUrl = new URL(import.meta.url);
+const currentPath = scriptUrl.pathname;
+const src = 'src';
+const indexOfSrc = currentPath.lastIndexOf(src);
+const srcPath = currentPath.substring(3, indexOfSrc + src.length);
 
-const __dirname = path.dirname(new URL(import.meta.url).pathname);
+app.use(express.static(srcPath + '/public'));
 
-// Serve static files from the 'client' directory
-app.use(express.static(path.join(__dirname, '../client')));
-
-// Specific route to serve the login.html.
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/login', 'login.html'));
+    res.sendFile(srcPath+'/client/login.html');
+  });
+
+app.get('/login.html',(req,res) =>{
+  res.sendFile(srcPath + '/client/login.html');
+})
+app.get('/createAcc.html',(req,res) =>{
+   res.sendFile(srcPath + '/client/createAcc.html');
+})
+app.get('/dashboard.html',(req,res) =>{
+  res.sendFile(srcPath + '/client/dashboard.html');
 });
 
-// Handling 404 - Resource Not Found
-app.use((req, res, next) => {
-  res.status(404).send("Sorry, can't find that!");
-});
+app.get('/homepage.html',(req,res) =>{
+  res.sendFile(srcPath + '/client/homepage.html');
+})
+app.get('/logout.html',(req,res) =>{
+  res.sendFile(srcPath + '/client/logout.html');
+})
+app.get('/taskDetails.html',(req,res) =>{
+  res.sendFile(srcPath + '/client/taskDetails.html');
+})
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('Something broke!');
-});
-
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+  app.listen(3000, () => {
+    console.log('Server is running on http://localhost:3000');
+  });
+  

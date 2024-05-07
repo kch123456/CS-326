@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let userName = document.getElementById('UserName').value;
         let password = document.getElementById('Password').value;
         if (userName && password) {
-            window.location.href = '/homepage/homepage.html';
+            window.location.href = '/homepage.html';
         } else {
             alert('Please enter both username and password');
         }
@@ -19,9 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const createAccountBtn = document.getElementById('createAccountBtn');
 
     createAccountBtn.addEventListener('click', function (event) {
-        window.location.href = '/createAcc/createAcc.html';
+        window.location.href = '/createAcc.html';
     });
 });
-
-
-

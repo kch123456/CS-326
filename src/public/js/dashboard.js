@@ -160,3 +160,19 @@ function jumpToToday() {
     currentDate = new Date();
     renderCalendar(currentDate);
 }
+
+document.getElementById('changeMonth-1').addEventListener('click',function(){
+    changeMonth(-1);
+});
+document.getElementById('changeMonth+1').addEventListener('click',function(){
+    changeMonth(1);
+});
+document.getElementById('jumpToToday').addEventListener('click',function(){
+    jumpToToday();
+});
+document.getElementById('toggleAddTask').addEventListener('click',function(){
+    toggleAddTask();
+});
+document.getElementById('add-task-form').addEventListener('submit',function(event){
+    addTask(event);
+});

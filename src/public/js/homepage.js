@@ -6,14 +6,12 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('introduction').appendChild(continueButton);
 
     continueButton.addEventListener('click', function () {
-        window.location.href = '/dashboard/dashboard.html';
+        window.location.href = '/dashboard.html';
     });
 
     // Logout button event listener
     document.getElementById('logoutButton').addEventListener('click', function () {
-        window.location.href = '/logout/logout.html';
+        window.location.href = '/logout.html';
     });
 });
-
-
 

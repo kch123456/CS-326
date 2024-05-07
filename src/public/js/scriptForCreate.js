@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     registerButton.addEventListener("click", async function (event) {
         event.preventDefault();
-        window.location.href = "/login/login.html";
+        window.location.href = "/login.html";
     });
 });
 

@@ -8,6 +8,9 @@ function openPanel(taskName, taskDate, taskDescription) {
 function closePanel() {
     document.getElementById('taskDetailsPanel').style.display = 'none';
 }
+document.getElementById('closePanel').addEventListener('click',function(){
+    closePanel();
+});
 document.getElementById('editCategoryBtn').addEventListener('click', function () {
     var section = document.getElementById('categoryEditSection');
     section.style.display = (section.style.display === 'none' || section.style.display === '') ? 'block' : 'none';
