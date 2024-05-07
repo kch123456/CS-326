@@ -3,8 +3,8 @@ import PouchDB from "pouchdb";
 
 const db = new PouchDB('Echo-secure-DB');
 async function init(){
-await db.put({id:'user-Credential', login: []});
-await db.put({id:'tasks', details:[]});
+await db.put({_id:'user-Credential', login: []});
+await db.put({_id:'tasks', details:[]});
 }
 
 //save user credentials

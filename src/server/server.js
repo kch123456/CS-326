@@ -1,7 +1,7 @@
-import exp from 'constants';
 import express from 'express';
 import path from 'path';
-
+import bodyParser from 'body-parser';
+import Database from './database.js';
 
 const app = express();
 const scriptUrl = new URL(import.meta.url);
@@ -11,6 +11,22 @@ const indexOfSrc = currentPath.lastIndexOf(src);
 const srcPath = currentPath.substring(3, indexOfSrc + src.length);
 
 app.use(express.static(srcPath + '/public'));
+app.use(bodyParser.json());
+
+
+app.post('/submit', async (req, res) => {
+  // Extract data from the request body
+  const username = req.body.username;
+  const password = req.body.password;
+  const database = await Database('user-Credential');
+  // Save the data to the database (replace this with your database logic)
+  // For demonstration purposes, we'll just log the data
+  console.log('Username:', username);
+  console.log('Password:', password);
+  await database.saveCredential(username,password);
+  console.log('saved successful');
+});
+
 
 app.get('/', (req, res) => {
     res.sendFile(srcPath+'/client/login.html');
