@@ -17,13 +17,26 @@ app.use(bodyParser.json());
 
 
 app.post('/submit', async (req, res) => {
-  const username = req.body.username;
-  const password = req.body.password;
-  const database = await Database();
-  console.log('Username:', username);
-  console.log('Password:', password);
-  await database.saveCredential(username,password);
-  console.log('saved successful');
+  try {
+    const username = req.body.username;
+    const password = req.body.password;
+    const database = await Database();
+    console.log('Username:', username);
+    console.log('Password:', password);
+    await database.saveCredential(username, password);
+    console.log('saved successful');
+    res.send("Credentials saved successfully!");
+  } catch(error) {
+    console.error("Error saving credentials: ", error);
+    res.status(500).send("Internal Server Error");
+  }
+  // const username = req.body.username;
+  // const password = req.body.password;
+  // const database = await Database();
+  // console.log('Username:', username);
+  // console.log('Password:', password);
+  // await database.saveCredential(username,password);
+  // console.log('saved successful');
 });
 
 
@@ -53,7 +66,22 @@ app.get('/taskDetails.html',(req,res) =>{
   res.sendFile(srcPath + '/client/taskDetails.html');
 })
 
-  app.listen(3000, () => {
-    console.log('Server is running on http://localhost:3000');
-  });
+// Catch 404 and forward to error handler
+app.use((req, res, next) => {
+  res.status(404).send("404 Not Found");
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  if (res.headersSent) {
+    return next(err); 
+  }
+  console.error("Server Error: ", err); 
+  res.status(500).send('Internal Server Error');
+});
+
+
+app.listen(3000, () => {
+  console.log('Server is running on http://localhost:3000');
+});
   
