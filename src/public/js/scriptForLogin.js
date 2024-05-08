@@ -1,41 +1,37 @@
-// import { promises } from "dns";
-// import Database from "../../server/database";
+async function checkExist(userName,password) {
+    try {
+        let response = await fetch('/checkExist');
+        if (!response.ok) {
+            throw new Error('Failed to fetch data');
+        }
+        let obj = await response.json();
+        let loginArr = obj.data.login;
+        for(let i =0; i < loginArr.length; ++i){
+            if(loginArr[i].userName === userName && loginArr[i].password ===password){
+                return true;
+            }
+        }
+        return false;
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
 
-// const database = Database();
-
-// const db = await database.getDB();
-
-// async function checkExist(userName,password){
-//     return promises((resolve,reject) =>{
-//         db.get('user-Credential')
-//         .then(doc =>{
-//             if (!doc.login || !Array.isArray(doc.login)) {
-//                 reject(new Error('Invalid document format'));
-//         }else {
-//             const user = doc.login.find(entry => entry.userName === userName && entry.password === password);
-//             resolve(user);
-//         }
-//     })
-//     .catch(err => {
-//         reject(err); 
-//     });
-// });
-// }
 document.addEventListener('DOMContentLoaded', function () {
     const loginForm = document.getElementById('loginForm');
 
-
-    loginForm.addEventListener('submit', function (event) {
+    loginForm.addEventListener('submit', async function (event) {
         event.preventDefault();
         let userName = document.getElementById('UserName').value;
         let password = document.getElementById('Password').value;
-        if (userName && password) {
+        if (await checkExist(userName,password)) {
             window.location.href = '/homepage.html';
         } else {
-            alert('Please enter both username and password');
+            alert('incorrect password');
         }
     });
 });
+
 
 
 document.addEventListener('DOMContentLoaded', function () {

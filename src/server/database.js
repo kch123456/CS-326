@@ -1,10 +1,19 @@
 import PouchDB from "pouchdb";
 
 
-const db = new PouchDB('Echo-secure-DB');
 async function init(){
-await db.put({_id:'user-Credential', login: []});
-await db.put({_id:'tasks', details:[]});
+const db = new PouchDB('Echo-secure-DB');
+try {
+    const login = await db.get("user-Credential");
+  } catch (e) {
+    await db.put({ _id: "user-Credential", login: [] });
+  }
+try {
+    const tasks = await db.get("tasks");
+  } catch (e) {
+    await db.put({ _id: "tasks", details: [] });
+  }
+await db.close();
 }
 
 //save user credentials
@@ -16,18 +25,26 @@ const Database = async ()=>{
     await init();
 
     const getDB = () => new PouchDB('Echo-secure-DB');
-
-
     const obj = {
-
+    
+    getLogin: async () =>{
+        try {
+            const newDB = getDB();
+            const loginArr = await newDB.get('user-Credential');
+            await newDB.close();
+            return {status:'get Login Successful', data:loginArr}; 
+        } catch (error) {
+            console.log('error');
+        }
+    },
 
     saveCredential: async (userName,password) =>{
     try{
-        const db = getDB();
-        const data = await db.get('user-Credential');
+        const newDB = getDB();
+        const data = await newDB.get('user-Credential');
         data.login.push({userName:userName,password:password})
-        await db.put(data);
-        await db.close();
+        await newDB.put(data);
+        await newDB.close();
         return {status:'successfully created account'};
     }catch(err){
         return {status:'failed to create account'};
@@ -37,11 +54,11 @@ const Database = async ()=>{
 
     saveTask: async (taskName,taskDate,description,category) =>{
     try{
-        const db = getDB();
-        const data = await db.get('tasks');
+        const newDB = getDB();
+        const data = await newDB.get('tasks');
         data.details.push({taskName:taskName,taskDate:taskDate,description:description,category:category});
-        await db.push(data);
-        await db.close();
+        await newDB.push(data);
+        await newDB.close();
         return {status:'successfully saved task'};
     }catch(err){
         return {status:'failed to save task'};

@@ -14,7 +14,7 @@ const srcPath = subPath.substring(0, indexOfSrc + src.length);
 
 app.use(express.static(srcPath + '/public'));
 app.use(bodyParser.json());
-
+const database = await Database();
 
 app.post('/submit', async (req, res) => {
   try {
@@ -65,6 +65,14 @@ app.get('/logout.html',(req,res) =>{
 app.get('/taskDetails.html',(req,res) =>{
   res.sendFile(srcPath + '/client/taskDetails.html');
 })
+app.get('/server/database.js',(req,res) =>{
+
+  res.sendFile(srcPath + '/server/database.js');
+})
+app.get('/checkExist', async (req, res) => {
+  const data = await database.getLogin();
+  res.json(data);
+  });
 
 // Catch 404 and forward to error handler
 app.use((req, res, next) => {
