@@ -74,6 +74,12 @@ app.get('/checkExist', async (req, res) => {
   res.json(data);
   });
 
+app.get('/createTasks',async(req,res) =>{
+  const data = await database.getTask();
+  res.json(data);
+})
+
+
 // Catch 404 and forward to error handler
 app.use((req, res, next) => {
   res.status(404).send("404 Not Found");

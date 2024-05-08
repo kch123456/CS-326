@@ -37,6 +37,16 @@ const Database = async ()=>{
             console.log('error');
         }
     },
+    getTask: async () =>{
+        try {
+            const newDB = getDB();
+            const taskArr = await newDB.get('tasks');
+            await newDB.close();
+            return {status:'get tasks Successful', data:taskArr}; 
+        } catch (error) {
+            console.log('error');
+        }
+    },
 
     saveCredential: async (userName,password) =>{
     try{
