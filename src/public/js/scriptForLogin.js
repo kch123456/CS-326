@@ -16,7 +16,6 @@ async function checkExist(userName,password) {
         console.error('Error:', error);
     }
 }
-
 document.addEventListener('DOMContentLoaded', function () {
     const loginForm = document.getElementById('loginForm');
 
@@ -24,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
         let userName = document.getElementById('UserName').value;
         let password = document.getElementById('Password').value;
+        localStorage.setItem('userName',userName);
         if (await checkExist(userName,password)) {
             window.location.href = '/homepage.html';
         } else {

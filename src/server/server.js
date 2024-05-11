@@ -39,6 +39,21 @@ app.post('/submit', async (req, res) => {
   // console.log('saved successful');
 });
 
+app.post('/addTasks', async (req,res) =>{
+  try {
+    const taskName = req.body.taskName;
+    const taskDate = req.body.taskDate;
+    const taskDescription = req.body.taskDescription;
+    const user = req.body.userName;
+    const database = await Database();
+    await database.saveTask(user,taskName,taskDate,taskDescription);
+    console.log('add successful');
+    res.send(" task added successfully!");
+  } catch (error) {
+    console.error("Error adding task: ", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
 
 
 
@@ -74,10 +89,10 @@ app.get('/checkExist', async (req, res) => {
   res.json(data);
   });
 
-app.get('/createTasks',async(req,res) =>{
+app.get('/getTasks',async(req,res) =>{
   const data = await database.getTask();
   res.json(data);
-})
+});
 
 
 // Catch 404 and forward to error handler

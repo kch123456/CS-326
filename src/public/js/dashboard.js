@@ -1,3 +1,5 @@
+const user = localStorage.getItem('userName');
+
 let tasksData = {}
 function toggleAddTask() {
     const addTaskForm = document.getElementById('add-task-form');
@@ -40,16 +42,9 @@ function closePanel() {
 
 
 
-function addTask(event) {
+function addTask(event,taskName,taskDate,taskDescription) {
     event.preventDefault();
 
-    // Get values from form fields
-    const taskName = document.getElementById('task-name').value;
-    const taskDate = document.getElementById('task-due-date').value;
-    const taskDescription = document.getElementById('task-desc').value;
-
-    // Clear the form
-    document.getElementById('add-task-form').reset();
     const taskID = Date.now();
 
     // Create the task element
@@ -87,8 +82,22 @@ function addTask(event) {
 
 let currentDate = new Date();
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function (event) {
     renderCalendar(currentDate);
+    let response = await fetch('/getTasks');
+    let obj = await response.json();
+    console.log(obj);
+    let tasksArr = obj.data.details;
+    let detailArr = 0;
+    for(let i =0; i < tasksArr.length; ++i){
+        if(tasksArr[i].userName === user){
+            detailArr = tasksArr[i].taskDetails;
+        }
+    }
+    for(let i =0; i < detailArr.length; ++i){
+        let taskObj = detailArr[i];
+        addTask(event,taskObj.taskName,taskObj.taskDate,taskObj.description);
+    }
 });
 
 function renderCalendar(date) {
@@ -160,7 +169,26 @@ function jumpToToday() {
     currentDate = new Date();
     renderCalendar(currentDate);
 }
+function sendDataToServer(userName,taskName,taskDate,taskDescription) {
 
+    const xhr = new XMLHttpRequest();
+
+    xhr.open('POST', '/addTasks', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            console.log(xhr.responseText);
+        }
+    };
+    xhr.onerror = function() {
+        console.error('Error occurred while sending data to the server.');
+    };
+    console.log(user);
+    const jsonData = JSON.stringify({userName:userName,taskName:taskName,taskDate:taskDate,taskDescription:taskDescription});
+
+    xhr.send(jsonData);
+}
 document.getElementById('changeMonth-1').addEventListener('click',function(){
     changeMonth(-1);
 });
@@ -173,6 +201,12 @@ document.getElementById('jumpToToday').addEventListener('click',function(){
 document.getElementById('toggleAddTask').addEventListener('click',function(){
     toggleAddTask();
 });
-document.getElementById('add-task-form').addEventListener('submit',function(event){
-    addTask(event);
+document.getElementById('add-task-form').addEventListener('submit',async function(event){
+    const taskName = document.getElementById('task-name').value;
+    const taskDate = document.getElementById('task-due-date').value;
+    const taskDescription = document.getElementById('task-desc').value;
+    addTask(event,taskName,taskDate,taskDescription);
+    await sendDataToServer(user,taskName,taskDate,taskDescription);
+    // Clear the form
+    document.getElementById('add-task-form').reset();
 });

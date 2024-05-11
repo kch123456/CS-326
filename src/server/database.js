@@ -1,19 +1,19 @@
 import PouchDB from "pouchdb";
 
 
-async function init(){
-const db = new PouchDB('Echo-secure-DB');
-try {
-    const login = await db.get("user-Credential");
-  } catch (e) {
-    await db.put({ _id: "user-Credential", login: [] });
-  }
-try {
-    const tasks = await db.get("tasks");
-  } catch (e) {
-    await db.put({ _id: "tasks", details: [] });
-  }
-await db.close();
+async function init() {
+    const db = new PouchDB('Echo-secure-DB');
+    try {
+        const login = await db.get("user-Credential");
+    } catch (e) {
+        await db.put({ _id: "user-Credential", login: [] });
+    }
+    try {
+        const tasks = await db.get("tasks");
+    } catch (e) {
+        await db.put({ _id: "tasks", details: [] });
+    }
+    await db.close();
 }
 
 //save user credentials
@@ -52,7 +52,7 @@ const Database = async ()=>{
     try{
         const newDB = getDB();
         const data = await newDB.get('user-Credential');
-        data.login.push({userName:userName,password:password})
+        data.login.push({userName:userName,password:password});
         await newDB.put(data);
         await newDB.close();
         return {status:'successfully created account'};
@@ -61,13 +61,23 @@ const Database = async ()=>{
     }
     },
 
-
-    saveTask: async (taskName,taskDate,description,category) =>{
+    saveTask: async (userName,taskName,taskDate,description) =>{
     try{
         const newDB = getDB();
         const data = await newDB.get('tasks');
-        data.details.push({taskName:taskName,taskDate:taskDate,description:description,category:category});
-        await newDB.push(data);
+        let index = -1;
+        for(let i =0; i < data.details.length; ++i){
+            console.log(data.details[i].userName);
+            if(data.details[i].userName === userName){
+                index = 1;
+            }
+        }
+        if(index != -1){
+            data.details[index].taskDetails.push({taskName:taskName,taskDate:taskDate,description:description});
+        }else{
+            data.details.push({userName:userName, taskDetails:[{taskName:taskName,taskDate:taskDate,description:description}]});
+        }
+        await newDB.put(data);
         await newDB.close();
         return {status:'successfully saved task'};
     }catch(err){
