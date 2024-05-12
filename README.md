@@ -19,6 +19,13 @@ For milestone 2, the relevant work lies within the /src/client and src/public di
 
 In milestone 3, good amount of effort have been made within the /src/server directory of the application. User authentication has been successfully implemented, ensuring secure access, and the system adeptly manages multiple users. It loads individualized sets of previously added tasks for each user, contributing to a more personalized and efficient user experience.
 
+Important routes
+
+/checkexit: retrieve user credential data from the database to the frontend.
+/getTasks: retrieve user tasks data from database to the frontend.
+/submit: sent user credential data to the server and save it in the database.
+/addTasks: sent task details data to the server and save it in the database.
+
 Installation
 1. Git clone to repository to your local machine
 2. Navigate to the project directory
