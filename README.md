@@ -22,8 +22,11 @@ In milestone 3, good amount of effort have been made within the /src/server dire
 Important routes
 
 /checkexit: retrieve user credential data from the database to the frontend.
+
 /getTasks: retrieve user tasks data from database to the frontend.
+
 /submit: sent user credential data to the server and save it in the database.
+
 /addTasks: sent task details data to the server and save it in the database.
 
 Installation
